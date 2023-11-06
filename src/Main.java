@@ -226,21 +226,23 @@ public class Main {
 
                 case 7:
 
+    
                     System.out.println("Digite la clave maestra para borrar los datos ");
                     int clave = scanner.nextInt();
+
                     if (clavemaster == clave) {
                         // Borrar datos
+                        DataHandler.guardarUsuarios(listausuarios, "usuarios.dat");
+                        DataHandler.guardarLibros(biblioteca, "libros.dat");
                         DataHandlerCleaner.limpiarUsuarios("usuarios.dat");
                         DataHandlerCleaner.limpiarLibros("libros.dat");
                         System.out.println("\nDatos eliminados con éxito.");
 
+                        // Finaliza el programa solo si la clave es correcta
+                        System.exit(0);
                     } else {
                         System.out.println("\nLa clave es incorrecta, volviendo al menú.");
                     }
-                    break;
-
-                default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
                     break;
             }
         } while (opcion != 8);
